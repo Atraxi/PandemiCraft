@@ -1,4 +1,4 @@
-package eviltalkingpie.pandemicraft.util;
+package eviltalkingpie.pandemicraft.utility;
 
 import eviltalkingpie.pandemicraft.reference.Reference;
 import cpw.mods.fml.common.FMLLog;

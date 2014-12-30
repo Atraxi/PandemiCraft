@@ -1,7 +1,12 @@
 package eviltalkingpie.pandemicraft;
 
+import net.minecraftforge.common.MinecraftForge;
 import eviltalkingpie.pandemicraft.reference.Reference;
-import eviltalkingpie.pandemicraft.configuration.ConfigurationHandler;
+import eviltalkingpie.pandemicraft.handler.BucketHandler;
+import eviltalkingpie.pandemicraft.handler.ConfigurationHandler;
+import eviltalkingpie.pandemicraft.init.ModBlocks;
+import eviltalkingpie.pandemicraft.init.ModFluids;
+import eviltalkingpie.pandemicraft.init.ModItems;
 import eviltalkingpie.pandemicraft.proxy.IProxy;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -29,12 +34,21 @@ public class PandemiCraft
          */
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(instance);
+        
+        ModItems.preInit();
+        
+        ModFluids.preInit();
+        
+        ModBlocks.preInit();
+        
+        BucketHandler.INSTANCE.buckets.put(ModBlocks.blockFluidRawMana, ModItems.itemRawManaBucket);
+        MinecraftForge.EVENT_BUS.register(BucketHandler.INSTANCE);
     }
     
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-        
+        ModFluids.init();
     }
     
     @Mod.EventHandler

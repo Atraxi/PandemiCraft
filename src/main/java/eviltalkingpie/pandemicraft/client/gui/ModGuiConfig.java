@@ -4,7 +4,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
 import cpw.mods.fml.client.config.GuiConfig;
-import eviltalkingpie.pandemicraft.configuration.ConfigurationHandler;
+import eviltalkingpie.pandemicraft.handler.ConfigurationHandler;
 import eviltalkingpie.pandemicraft.reference.Reference;
 
 public class ModGuiConfig extends GuiConfig

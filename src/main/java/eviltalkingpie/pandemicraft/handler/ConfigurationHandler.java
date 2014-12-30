@@ -1,4 +1,4 @@
-package eviltalkingpie.pandemicraft.configuration;
+package eviltalkingpie.pandemicraft.handler;
 
 import java.io.File;
 
