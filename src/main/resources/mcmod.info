@@ -1,0 +1,16 @@
+[
+{
+  "modid": "PandemiCraft",
+  "name": "PandemiCraft",
+  "description": "Additional items, blocks, and recipes for the PandemiCraft modpack.",
+  "version": "0.1",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["EvilTalkingPie", "Das Renchen"],
+  "credits": "Das Renchen for all textures, Pahimar for his Let's Mod Reboot tutorial series.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
