@@ -9,7 +9,7 @@ public class ItemDarkStar extends ItemBase
     public ItemDarkStar()
     {
         super("darkStar");
-        this.maxStackSize=64;
+        maxStackSize = 64;
     }
     
     @SideOnly(Side.CLIENT)

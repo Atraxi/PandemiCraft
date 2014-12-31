@@ -14,3 +14,5 @@ bin/
 .gradle/
 .classpath
 eclipse/
+.settings/org.eclipse.jdt.core.prefs
+.project

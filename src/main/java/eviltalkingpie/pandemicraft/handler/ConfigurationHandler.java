@@ -10,11 +10,11 @@ import eviltalkingpie.pandemicraft.reference.Reference;
 public class ConfigurationHandler
 {
     public static Configuration configuration;
-    public static boolean isPandemiCraft=true;
+    public static boolean       isPandemiCraft = true;
     
     public static void init(File configFile)
     {
-        if(configuration==null)
+        if (configuration == null)
         {
             configuration = new Configuration(configFile);
             loadConfiguration();
@@ -22,9 +22,10 @@ public class ConfigurationHandler
     }
     
     @SubscribeEvent
-    public void onConfigurationChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event)
+    public void onConfigurationChangedEvent(
+            ConfigChangedEvent.OnConfigChangedEvent event)
     {
-        if(event.modID.equalsIgnoreCase(Reference.MOD_ID))
+        if (event.modID.equalsIgnoreCase(Reference.MOD_ID))
         {
             loadConfiguration();
         }
@@ -32,9 +33,13 @@ public class ConfigurationHandler
     
     private static void loadConfiguration()
     {
-        isPandemiCraft=configuration.getBoolean("isPandemiCraft", Configuration.CATEGORY_GENERAL, true, "Is this on the PandemiCraft server? (changes whether the PandemiCrafters heads are use for crafting, or mob heads)");
-        
-        if(configuration.hasChanged())
+        isPandemiCraft = configuration
+                .getBoolean(
+                        "isPandemiCraft",
+                        Configuration.CATEGORY_GENERAL,
+                        true,
+                        "Is this on the PandemiCraft server? (changes whether the PandemiCrafters heads are use for crafting, or mob heads)");
+        if (configuration.hasChanged())
         {
             configuration.save();
         }
