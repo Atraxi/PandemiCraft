@@ -15,6 +15,7 @@ import eviltalkingpie.pandemicraft.init.ModItems;
 import eviltalkingpie.pandemicraft.proxy.IProxy;
 import eviltalkingpie.pandemicraft.reference.Reference;
 import eviltalkingpie.pandemicraft.tinkers.Alloys;
+import eviltalkingpie.pandemicraft.tinkers.Casting;
 import eviltalkingpie.pandemicraft.tinkers.Melting;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
@@ -53,5 +54,6 @@ public class PandemiCraft
     {
         Alloys.postInit();
         Melting.postInit();
+        Casting.postInit();
     }
 }

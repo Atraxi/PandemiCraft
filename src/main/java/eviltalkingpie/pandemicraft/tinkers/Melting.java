@@ -26,7 +26,7 @@ public class Melting
          (new ItemStack(TinkerSmeltery.smeltery, 1, 4)).writeToNBT(item); // seared stone block
          tag.setTag("Block", item);
          // liquid to produce. This time the amount DOES matter!
-         (new FluidStack(ModFluids.fluidRawMana, 2000)).writeToNBT(tag); // this also works
+         (new FluidStack(ModFluids.fluidRawMana, 50000)).writeToNBT(tag); // this also works
          // the temperature required
          tag.setInteger("Temperature", 1300);
          FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
