@@ -3,7 +3,6 @@ package eviltalkingpie.pandemicraft.utility;
 import org.apache.logging.log4j.Level;
 
 import cpw.mods.fml.common.FMLLog;
-import eviltalkingpie.pandemicraft.reference.Reference;
 
 public class Logger
 {

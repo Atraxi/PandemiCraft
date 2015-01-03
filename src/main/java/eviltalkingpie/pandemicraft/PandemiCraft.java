@@ -13,12 +13,13 @@ import eviltalkingpie.pandemicraft.init.ModBlocks;
 import eviltalkingpie.pandemicraft.init.ModFluids;
 import eviltalkingpie.pandemicraft.init.ModItems;
 import eviltalkingpie.pandemicraft.proxy.IProxy;
-import eviltalkingpie.pandemicraft.reference.Reference;
 import eviltalkingpie.pandemicraft.tinkers.Alloys;
 import eviltalkingpie.pandemicraft.tinkers.Casting;
 import eviltalkingpie.pandemicraft.tinkers.Melting;
+import eviltalkingpie.pandemicraft.utility.Reference;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS,
+        dependencies = Reference.DEPENDENCIES)
 public class PandemiCraft
 {
     @Mod.Instance(Reference.MOD_ID)
@@ -29,16 +30,13 @@ public class PandemiCraft
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        /*
-         * register items/blocks network handling mod configuration
-         */
+        /* register items/blocks network handling mod configuration */
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(instance);
         ModItems.preInit();
         ModFluids.preInit();
         ModBlocks.preInit();
-        BucketHandler.buckets.put(ModBlocks.blockFluidRawMana,
-                ModItems.itemRawManaBucket);
+        BucketHandler.buckets.put(ModBlocks.blockFluidRawMana, ModItems.itemRawManaBucket);
         MinecraftForge.EVENT_BUS.register(BucketHandler.INSTANCE);
         MinecraftForge.EVENT_BUS.register(proxy);
     }

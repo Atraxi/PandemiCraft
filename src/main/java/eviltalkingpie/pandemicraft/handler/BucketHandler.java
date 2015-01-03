@@ -47,8 +47,7 @@ public class BucketHandler
     {
         Block block = world.getBlock(pos.blockX, pos.blockY, pos.blockZ);
         Item bucket = buckets.get(block);
-        if ((bucket != null)
-                && (world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ) == 0))
+        if ((bucket != null) && (world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ) == 0))
         {
             world.setBlockToAir(pos.blockX, pos.blockY, pos.blockZ);
             return new ItemStack(bucket);
@@ -59,16 +58,14 @@ public class BucketHandler
         }
     }
     
-    public static boolean emptyBucket(World world, int x, int y, int z,
-            ItemStack bucket)
+    public static boolean emptyBucket(World world, int x, int y, int z, ItemStack bucket)
     {
         boolean r = false;
         if (!buckets.inverse().containsKey(bucket.getItem()))
         {
             if (bucket.getItem() instanceof ItemBucket)
             {
-                r = ((ItemBucket) bucket.getItem()).tryPlaceContainedLiquid(
-                        world, x, y, z);
+                r = ((ItemBucket) bucket.getItem()).tryPlaceContainedLiquid(world, x, y, z);
                 world.markBlockForUpdate(x, y, z);
             }
             return r;

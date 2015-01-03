@@ -17,11 +17,9 @@ public class ItemRawManaBucket extends ItemBase
     }
     
     @Override
-    public ItemStack onItemRightClick(ItemStack stack, World world,
-            EntityPlayer player)
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
-        MovingObjectPosition pos = getMovingObjectPositionFromPlayer(world,
-                player, false);
+        MovingObjectPosition pos = getMovingObjectPositionFromPlayer(world, player, false);
         if ((pos == null) || (pos.typeOfHit != MovingObjectType.BLOCK))
         {
             return stack;
@@ -50,9 +48,7 @@ public class ItemRawManaBucket extends ItemBase
             ++x;
             break;
         }
-        if (!player.canPlayerEdit(x, y, z, pos.sideHit, stack)
-                || (!world.isAirBlock(x, y, z) && world.getBlock(x, y, z)
-                        .getMaterial().isSolid()))
+        if (!player.canPlayerEdit(x, y, z, pos.sideHit, stack) || (!world.isAirBlock(x, y, z) && world.getBlock(x, y, z).getMaterial().isSolid()))
         {
             return stack;
         }

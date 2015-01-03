@@ -11,16 +11,14 @@ public class ModFluids
     
     public static void preInit()
     {
-        fluidRawMana = new Fluid("rawMana").setLuminosity(10).setDensity(1500)
-                .setTemperature(310).setViscosity(2500).setGaseous(true)
-                .setBlock(ModBlocks.blockFluidRawMana);
+        fluidRawMana =
+                new Fluid("rawMana").setLuminosity(10).setDensity(1500).setTemperature(310).setViscosity(2500).setGaseous(true)
+                        .setBlock(ModBlocks.blockFluidRawMana);
         FluidRegistry.registerFluid(fluidRawMana);
     }
     
     public static void init()
     {
-        FluidContainerRegistry.registerFluidContainer(fluidRawMana,
-                new ItemStack(ModItems.itemRawManaBucket),
-                FluidContainerRegistry.EMPTY_BUCKET);
+        FluidContainerRegistry.registerFluidContainer(fluidRawMana, new ItemStack(ModItems.itemRawManaBucket), FluidContainerRegistry.EMPTY_BUCKET);
     }
 }

@@ -13,8 +13,6 @@ public class ClientProxy extends CommonProxy
     @SubscribeEvent
     public void initializeIcons(TextureStitchEvent.Post event)
     {
-        ModFluids.fluidRawMana
-        .setIcons(ModFluids.fluidRawMana.getBlock().getIcon(0, 0),
-                ModFluids.fluidRawMana.getBlock().getIcon(3, 0));
+        ModFluids.fluidRawMana.setIcons(ModFluids.fluidRawMana.getBlock().getIcon(0, 0), ModFluids.fluidRawMana.getBlock().getIcon(3, 0));
     }
 }

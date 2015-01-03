@@ -9,7 +9,7 @@ import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import eviltalkingpie.pandemicraft.reference.Reference;
+import eviltalkingpie.pandemicraft.utility.Reference;
 
 public class BlockFluidBase extends BlockFluidClassic
 {
@@ -34,8 +34,7 @@ public class BlockFluidBase extends BlockFluidClassic
     @Override
     public String getUnlocalizedName()
     {
-        return String.format("tile.%s%s", Reference.MOD_ID.toLowerCase() + ":",
-                getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+        return String.format("tile.%s%s", Reference.MOD_ID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
     
     protected String getUnwrappedUnlocalizedName(String unlocalizedName)
@@ -47,12 +46,8 @@ public class BlockFluidBase extends BlockFluidClassic
     @Override
     public void registerBlockIcons(IIconRegister iconRegister)
     {
-        stillIcon = iconRegister.registerIcon(String.format("%s",
-                getUnwrappedUnlocalizedName(getUnlocalizedName())));
-        flowingIcon = iconRegister
-                .registerIcon(String.format("%s",
-                        getUnwrappedUnlocalizedName(getUnlocalizedName()))
-                        + "_flowing");
+        stillIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(getUnlocalizedName())));
+        flowingIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(getUnlocalizedName())) + "_flowing");
     }
     
     @Override
