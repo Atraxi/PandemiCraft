@@ -12,7 +12,8 @@ import eviltalkingpie.pandemicraft.handler.ConfigurationHandler;
 import eviltalkingpie.pandemicraft.init.ModBlocks;
 import eviltalkingpie.pandemicraft.init.ModFluids;
 import eviltalkingpie.pandemicraft.init.ModItems;
-import eviltalkingpie.pandemicraft.proxy.IProxy;
+import eviltalkingpie.pandemicraft.proxy.CommonProxy;
+import eviltalkingpie.pandemicraft.thaumcraft.ArcaneWorktable;
 import eviltalkingpie.pandemicraft.tinkers.Alloys;
 import eviltalkingpie.pandemicraft.tinkers.Casting;
 import eviltalkingpie.pandemicraft.tinkers.Melting;
@@ -25,7 +26,7 @@ public class PandemiCraft
     @Mod.Instance(Reference.MOD_ID)
     public static PandemiCraft instance;
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
-    public static IProxy       proxy;
+    public static CommonProxy  proxy;
     
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -50,8 +51,11 @@ public class PandemiCraft
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+        // Tinkers Construct recipes
         Alloys.postInit();
         Melting.postInit();
         Casting.postInit();
+        // Thaumcraft recipes
+        ArcaneWorktable.postInit();
     }
 }

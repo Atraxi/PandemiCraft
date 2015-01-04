@@ -1,5 +1,7 @@
 item.pandemicraft:pulsingIngot.name=Pulsing Ingot
 item.pandemicraft:darkStar.name=Dark Star
 item.pandemicraft:rawManaBucket.name=Raw Mana Bucket
+item.pandemicraft:realityCrack.name=Crack in Reality
+item.pandemicraft:stabilizedRealityCrack.name=Temporarily Stabilized Crack in Reality
 tile.pandemicraft:rawMana.name=Raw Mana
 fluid.rawMana=Raw Mana

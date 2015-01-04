@@ -9,6 +9,7 @@ import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import eviltalkingpie.pandemicraft.init.ModFluids;
 import eviltalkingpie.pandemicraft.utility.Reference;
 
 public class BlockFluidBase extends BlockFluidClassic
@@ -48,6 +49,7 @@ public class BlockFluidBase extends BlockFluidClassic
     {
         stillIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(getUnlocalizedName())));
         flowingIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(getUnlocalizedName())) + "_flowing");
+        ModFluids.fluidRawMana.setIcons(stillIcon, flowingIcon);
     }
     
     @Override
