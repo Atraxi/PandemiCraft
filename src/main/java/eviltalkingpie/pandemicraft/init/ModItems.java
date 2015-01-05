@@ -2,10 +2,12 @@ package eviltalkingpie.pandemicraft.init;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import eviltalkingpie.pandemicraft.item.ItemBase;
+import eviltalkingpie.pandemicraft.item.ItemBloodHeart;
 import eviltalkingpie.pandemicraft.item.ItemDarkStar;
 import eviltalkingpie.pandemicraft.item.ItemPulsingIngot;
 import eviltalkingpie.pandemicraft.item.ItemRawManaBucket;
 import eviltalkingpie.pandemicraft.item.ItemRealityCrack;
+import eviltalkingpie.pandemicraft.item.ItemRealityTear;
 import eviltalkingpie.pandemicraft.item.ItemStabilizedRealityCrack;
 
 public class ModItems
@@ -15,6 +17,8 @@ public class ModItems
     public static final ItemBase itemRawManaBucket          = new ItemRawManaBucket();
     public static final ItemBase itemRealityCrack           = new ItemRealityCrack();
     public static final ItemBase itemStabilizedRealityCrack = new ItemStabilizedRealityCrack();
+    public static final ItemBase itemRealityTear            = new ItemRealityTear();
+    public static final ItemBase itemBloodHeart             = new ItemBloodHeart();
     
     public static void preInit()
     {
@@ -23,5 +27,7 @@ public class ModItems
         GameRegistry.registerItem(itemRawManaBucket, "rawManaBucket");
         GameRegistry.registerItem(itemRealityCrack, "rsealityCrack");
         GameRegistry.registerItem(itemStabilizedRealityCrack, "stabilizedRealityCrack");
+        GameRegistry.registerItem(itemRealityTear, "realityTear");
+        GameRegistry.registerItem(itemBloodHeart, "bloodHeart");
     }
 }
