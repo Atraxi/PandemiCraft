@@ -11,6 +11,7 @@ public class ConfigurationHandler
 {
     public static Configuration configuration;
     public static boolean       isPandemiCraft = true;
+    public static boolean       prankJarren    = true;
     
     public static void init(File configFile)
     {
@@ -33,8 +34,10 @@ public class ConfigurationHandler
     private static void loadConfiguration()
     {
         isPandemiCraft =
-                configuration.getBoolean("isPandemiCraft", Configuration.CATEGORY_GENERAL, true,
-                        "Is this on the PandemiCraft server? (changes whether the PandemiCrafters heads are use for crafting, or mob heads)");
+                configuration
+                        .getBoolean("Is this PandemiCraft", Configuration.CATEGORY_GENERAL, true,
+                                "Is this on the PandemiCraft server? (changes whether the PandemiCrafters heads are use for crafting, or mob heads)");
+        prankJarren = configuration.getBoolean("Secret", Configuration.CATEGORY_GENERAL, true, "Enable the secret thing?");
         if (configuration.hasChanged())
         {
             configuration.save();

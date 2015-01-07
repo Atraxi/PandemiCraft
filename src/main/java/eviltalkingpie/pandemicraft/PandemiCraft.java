@@ -7,13 +7,17 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import eviltalkingpie.pandemicraft.bloodmagic.Altar;
 import eviltalkingpie.pandemicraft.handler.BucketHandler;
 import eviltalkingpie.pandemicraft.handler.ConfigurationHandler;
 import eviltalkingpie.pandemicraft.init.ModBlocks;
 import eviltalkingpie.pandemicraft.init.ModFluids;
 import eviltalkingpie.pandemicraft.init.ModItems;
+import eviltalkingpie.pandemicraft.init.Vanilla;
 import eviltalkingpie.pandemicraft.proxy.CommonProxy;
 import eviltalkingpie.pandemicraft.thaumcraft.ArcaneWorktable;
+import eviltalkingpie.pandemicraft.thaumcraft.Crucible;
+import eviltalkingpie.pandemicraft.thaumcraft.Infusion;
 import eviltalkingpie.pandemicraft.tinkers.Alloys;
 import eviltalkingpie.pandemicraft.tinkers.Casting;
 import eviltalkingpie.pandemicraft.tinkers.Melting;
@@ -46,16 +50,21 @@ public class PandemiCraft
     public void init(FMLInitializationEvent event)
     {
         ModFluids.init();
+        // Tinkers Construct recipes
+        Alloys.init();
+        Melting.init();
+        Casting.init();
+        // Thaumcraft recipes
+        ArcaneWorktable.init();
+        Crucible.init();
+        Infusion.init();
+        // Blood Magic recipes
+        Altar.init();
     }
     
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        // Tinkers Construct recipes
-        Alloys.postInit();
-        Melting.postInit();
-        Casting.postInit();
-        // Thaumcraft recipes
-        ArcaneWorktable.postInit();
+        Vanilla.postInit();
     }
 }

@@ -15,7 +15,7 @@ public class ModItems
     public static final ItemBase itemStabilizedRealityCrack = new ItemSimple("stabilizedRealityCrack", 1);
     public static final ItemBase itemRealityTear            = new ItemSimple("realityTear", 1);
     public static final ItemBase itemBloodHeart             = new ItemSimple("bloodHeart", 16);
-    public static final ItemBase itemChargedHeart           = new ItemSimple("chargedHeart", 16);
+    public static final ItemBase itemPulsingHeart           = new ItemSimple("pulsingHeart", 16);
     public static final ItemBase itemInfusedHeart           = new ItemSimple("infusedHeart", 16);
     
     public static void preInit()
@@ -27,7 +27,7 @@ public class ModItems
         registerItem(itemStabilizedRealityCrack);
         registerItem(itemRealityTear);
         registerItem(itemBloodHeart);
-        registerItem(itemChargedHeart);
+        registerItem(itemPulsingHeart);
         registerItem(itemInfusedHeart);
     }
     
