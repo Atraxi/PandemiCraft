@@ -2,32 +2,37 @@ package eviltalkingpie.pandemicraft.init;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import eviltalkingpie.pandemicraft.item.ItemBase;
-import eviltalkingpie.pandemicraft.item.ItemBloodHeart;
 import eviltalkingpie.pandemicraft.item.ItemDarkStar;
-import eviltalkingpie.pandemicraft.item.ItemPulsingIngot;
 import eviltalkingpie.pandemicraft.item.ItemRawManaBucket;
-import eviltalkingpie.pandemicraft.item.ItemRealityCrack;
-import eviltalkingpie.pandemicraft.item.ItemRealityTear;
-import eviltalkingpie.pandemicraft.item.ItemStabilizedRealityCrack;
+import eviltalkingpie.pandemicraft.item.ItemSimple;
 
 public class ModItems
 {
-    public static final ItemBase itemPulsingIngot           = new ItemPulsingIngot();
-    public static final ItemBase itemDarkStar               = new ItemDarkStar();
     public static final ItemBase itemRawManaBucket          = new ItemRawManaBucket();
-    public static final ItemBase itemRealityCrack           = new ItemRealityCrack();
-    public static final ItemBase itemStabilizedRealityCrack = new ItemStabilizedRealityCrack();
-    public static final ItemBase itemRealityTear            = new ItemRealityTear();
-    public static final ItemBase itemBloodHeart             = new ItemBloodHeart();
+    public static final ItemBase itemDarkStar               = new ItemDarkStar();
+    public static final ItemBase itemPulsingIngot           = new ItemSimple("pulsingIngot", 1);
+    public static final ItemBase itemRealityCrack           = new ItemSimple("realityCrack", 1);
+    public static final ItemBase itemStabilizedRealityCrack = new ItemSimple("stabilizedRealityCrack", 1);
+    public static final ItemBase itemRealityTear            = new ItemSimple("realityTear", 1);
+    public static final ItemBase itemBloodHeart             = new ItemSimple("bloodHeart", 16);
+    public static final ItemBase itemChargedHeart           = new ItemSimple("chargedHeart", 16);
+    public static final ItemBase itemInfusedHeart           = new ItemSimple("infusedHeart", 16);
     
     public static void preInit()
     {
-        GameRegistry.registerItem(itemPulsingIngot, "pulsingIngot");
-        GameRegistry.registerItem(itemDarkStar, "darkStar");
-        GameRegistry.registerItem(itemRawManaBucket, "rawManaBucket");
-        GameRegistry.registerItem(itemRealityCrack, "rsealityCrack");
-        GameRegistry.registerItem(itemStabilizedRealityCrack, "stabilizedRealityCrack");
-        GameRegistry.registerItem(itemRealityTear, "realityTear");
-        GameRegistry.registerItem(itemBloodHeart, "bloodHeart");
+        registerItem(itemRawManaBucket);
+        registerItem(itemDarkStar);
+        registerItem(itemPulsingIngot);
+        registerItem(itemRealityCrack);
+        registerItem(itemStabilizedRealityCrack);
+        registerItem(itemRealityTear);
+        registerItem(itemBloodHeart);
+        registerItem(itemChargedHeart);
+        registerItem(itemInfusedHeart);
+    }
+    
+    private static void registerItem(ItemBase item)
+    {
+        GameRegistry.registerItem(item, item.getUnlocalizedName());
     }
 }

@@ -1,7 +1,11 @@
-item.pandemicraft:pulsingIngot.name=Pulsing Ingot
-item.pandemicraft:darkStar.name=Dark Star
 item.pandemicraft:rawManaBucket.name=Raw Mana Bucket
+item.pandemicraft:darkStar.name=Dark Star
+item.pandemicraft:pulsingIngot.name=Pulsing Ingot
 item.pandemicraft:realityCrack.name=Crack in Reality
 item.pandemicraft:stabilizedRealityCrack.name=Temporarily Stabilized Crack in Reality
+item.pandemicraft:realityTear.name=Tear in Reality
+item.pandemicraft:bloodHeart.name=Blood Heart
+item.pandemicraft:chargedHeart.name=Charged Heart
+item.pandemicraft:infusedHeart.name=Infused Heart
 tile.pandemicraft:rawMana.name=Raw Mana
 fluid.rawMana=Raw Mana
