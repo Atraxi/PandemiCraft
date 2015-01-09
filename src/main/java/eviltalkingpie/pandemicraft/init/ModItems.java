@@ -3,9 +3,12 @@ package eviltalkingpie.pandemicraft.init;
 import cpw.mods.fml.common.registry.GameRegistry;
 import eviltalkingpie.pandemicraft.item.ItemBase;
 import eviltalkingpie.pandemicraft.item.ItemDarkStar;
+import eviltalkingpie.pandemicraft.item.ItemGreenHeart;
 import eviltalkingpie.pandemicraft.item.ItemRawManaBucket;
 import eviltalkingpie.pandemicraft.item.ItemSimple;
+import eviltalkingpie.pandemicraft.utility.Reference;
 
+@GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModItems
 {
     public static final ItemBase itemRawManaBucket          = new ItemRawManaBucket();
@@ -17,6 +20,7 @@ public class ModItems
     public static final ItemBase itemBloodHeart             = new ItemSimple("bloodHeart", 16);
     public static final ItemBase itemPulsingHeart           = new ItemSimple("pulsingHeart", 16);
     public static final ItemBase itemInfusedHeart           = new ItemSimple("infusedHeart", 16);
+    public static final ItemBase itemGreenHeart             = new ItemGreenHeart();
     
     public static void preInit()
     {
@@ -29,6 +33,7 @@ public class ModItems
         registerItem(itemBloodHeart);
         registerItem(itemPulsingHeart);
         registerItem(itemInfusedHeart);
+        registerItem(itemGreenHeart);
     }
     
     private static void registerItem(ItemBase item)

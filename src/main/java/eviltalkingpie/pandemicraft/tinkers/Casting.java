@@ -8,7 +8,6 @@ import tconstruct.library.TConstructRegistry;
 import tconstruct.library.crafting.LiquidCasting;
 import cpw.mods.fml.common.registry.GameRegistry;
 import eviltalkingpie.pandemicraft.init.ModItems;
-import eviltalkingpie.pandemicraft.utility.Logger;
 
 public class Casting
 {
@@ -21,8 +20,12 @@ public class Casting
         stable.setByte("stable", (byte) 1);
         stable.setByte("superstable", (byte) 1);
         stableIngot.setTagCompound(stable);
-        Logger.debug(stableIngot);
+        // Logger.debug(stableIngot);
+        // Util.setNBTByte(stableIngot, "stable", (byte) 1);
+        // Util.setNBTByte(stableIngot, "superstable", (byte) 1);
         tableCasting.addCastingRecipe(new ItemStack(ModItems.itemPulsingIngot), new FluidStack(FluidRegistry.getFluid("mana"),
                 1000), stableIngot, true, 200);
+        tableCasting.addCastingRecipe(new ItemStack(ModItems.itemPulsingHeart), new FluidStack(FluidRegistry.getFluid("mana"),
+                500), new ItemStack(ModItems.itemBloodHeart), true, 250);
     }
 }

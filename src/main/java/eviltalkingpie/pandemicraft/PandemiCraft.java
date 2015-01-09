@@ -8,12 +8,14 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import eviltalkingpie.pandemicraft.bloodmagic.Altar;
+import eviltalkingpie.pandemicraft.botania.ElvenGateway;
 import eviltalkingpie.pandemicraft.handler.BucketHandler;
 import eviltalkingpie.pandemicraft.handler.ConfigurationHandler;
 import eviltalkingpie.pandemicraft.init.ModBlocks;
 import eviltalkingpie.pandemicraft.init.ModFluids;
 import eviltalkingpie.pandemicraft.init.ModItems;
 import eviltalkingpie.pandemicraft.init.Vanilla;
+import eviltalkingpie.pandemicraft.pneumaticcraft.PressureChamber;
 import eviltalkingpie.pandemicraft.proxy.CommonProxy;
 import eviltalkingpie.pandemicraft.thaumcraft.ArcaneWorktable;
 import eviltalkingpie.pandemicraft.thaumcraft.Crucible;
@@ -60,6 +62,10 @@ public class PandemiCraft
         Infusion.init();
         // Blood Magic recipes
         Altar.init();
+        // PneumaticCraft recipes
+        PressureChamber.init();
+        // Botania recipes
+        ElvenGateway.init();
     }
     
     @Mod.EventHandler

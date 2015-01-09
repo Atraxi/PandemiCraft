@@ -12,7 +12,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import eviltalkingpie.pandemicraft.init.ModFluids;
 import eviltalkingpie.pandemicraft.utility.Reference;
 
-public class BlockFluidBase extends BlockFluidClassic
+public abstract class BlockFluidBase extends BlockFluidClassic
 {
     public BlockFluidBase(Fluid fluid, Material material, String name)
     {
@@ -32,23 +32,16 @@ public class BlockFluidBase extends BlockFluidClassic
         return ((side == 0) || (side == 1)) ? stillIcon : flowingIcon;
     }
     
-    @Override
-    public String getUnlocalizedName()
-    {
-        return String.format("tile.%s%s", Reference.MOD_ID.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
-    }
-    
-    protected String getUnwrappedUnlocalizedName(String unlocalizedName)
-    {
-        return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
-    }
-    
     @SideOnly(Side.CLIENT)
     @Override
     public void registerBlockIcons(IIconRegister iconRegister)
     {
-        stillIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(getUnlocalizedName())));
-        flowingIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(getUnlocalizedName())) + "_flowing");
+        stillIcon =
+                iconRegister.registerIcon(Reference.MOD_ID + ":"
+                        + getUnlocalizedName().substring(getUnlocalizedName().indexOf(".") + 1));
+        flowingIcon =
+                iconRegister.registerIcon(Reference.MOD_ID + ":"
+                        + getUnlocalizedName().substring(getUnlocalizedName().indexOf(".") + 1) + "_flowing");
         ModFluids.fluidRawMana.setIcons(stillIcon, flowingIcon);
     }
     

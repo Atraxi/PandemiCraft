@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
+import cpw.mods.fml.common.registry.GameRegistry;
 import eviltalkingpie.pandemicraft.handler.ConfigurationHandler;
 import eviltalkingpie.pandemicraft.init.ModItems;
 import eviltalkingpie.pandemicraft.utility.Util;
@@ -63,6 +64,18 @@ public class Infusion
                     new ItemStack(ModItems.itemDarkStar)
                     });
         }
+        ThaumcraftApi.addInfusionCraftingRecipe("OUTERREV",
+                new ItemStack(ModItems.itemInfusedHeart), 800,
+                new AspectList().add(Aspect.LIFE, 40).add(Aspect.HEAL, 40),
+                new ItemStack(ModItems.itemPulsingHeart),
+                new ItemStack[]{
+                new ItemStack(ModItems.itemDarkStar),
+                new ItemStack(GameRegistry.findItem("AWWayofTime", "bloodMagicBaseItems"), 1, 28),
+                new ItemStack(GameRegistry.findItem("AWWayofTime", "bloodMagicBaseItems"), 1, 29),
+                new ItemStack(ModItems.itemDarkStar),
+                new ItemStack(GameRegistry.findItem("AWWayofTime", "bloodMagicBaseItems"), 1, 28),
+                new ItemStack(GameRegistry.findItem("AWWayofTime", "bloodMagicBaseItems"), 1, 29)
+        });
         //@formatter:on
     }
 }

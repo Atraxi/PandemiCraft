@@ -31,5 +31,11 @@ public class Vanilla
                     new Object[] { "www", "hs ", " s ", 's', Items.stick, 'w', Blocks.planks, 'h',
                             Util.setNBTString(new ItemStack(Items.skull, 1, 3), "SkullOwner", "Jarrenitis") });
         }
+        GameRegistry.addShapelessRecipe(new ItemStack(GameRegistry.findItem("TConstruct", "heartCanister"), 1, 6), new ItemStack(
+                ModItems.itemGreenHeart), new ItemStack(GameRegistry.findItem("TConstruct", "heartCanister"), 1, 4),
+                new ItemStack(GameRegistry.findItem("Botania", "storage"), 1, 1),
+                new ItemStack(GameRegistry.findItem("EnderIO", "blockIngotStorage"), 1, 2),
+                new ItemStack(GameRegistry.findItem("ThermalFoundation", "Storage"), 1, 12),
+                new ItemStack(GameRegistry.findItem("Thaumcraft", "blockCosmeticSolid"), 1, 4));
     }
 }

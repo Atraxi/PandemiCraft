@@ -10,7 +10,7 @@ import eviltalkingpie.pandemicraft.init.ModFluids;
 
 public class Melting
 {
-    public static void postInit()
+    public static void init()
     {
         NBTTagCompound tag = new NBTTagCompound();
         // the item
@@ -19,6 +19,7 @@ public class Melting
         NBTTagCompound manaTag = new NBTTagCompound();
         manaTag.setInteger("mana", 2000000);
         ring.setTagCompound(manaTag);
+        // Util.setNBTInteger(ring, "mana", 2000000);
         ring.setItemDamage(0);
         ring.writeToNBT(item); // greater band of mana
         tag.setTag("Item", item);

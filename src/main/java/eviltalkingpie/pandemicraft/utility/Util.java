@@ -20,4 +20,12 @@ public class Util
         item.setTagCompound(nbt);
         return item;
     }
+    
+    public static ItemStack setNBTByte(ItemStack item, String tagName, byte tag)
+    {
+        NBTTagCompound nbt = new NBTTagCompound();
+        nbt.setByte(tagName, tag);
+        item.setTagCompound(nbt);
+        return item;
+    }
 }
