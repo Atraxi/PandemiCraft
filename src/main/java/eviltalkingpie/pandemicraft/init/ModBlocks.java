@@ -12,8 +12,8 @@ import eviltalkingpie.pandemicraft.utility.Reference;
 public class ModBlocks
 {
     public static BlockFluidBase  blockFluidRawMana;
-    public static final BlockBase blockNonupleCompressed = new BlockSimple("nonupleCompressed", Material.rock);
-    public static final BlockBase blockDecupleCompressed = new BlockSimple("decupleCompressed", Material.rock);
+    public static final BlockBase blockNonupleCompressed = new BlockSimple("nonupleCompressed", Material.rock, 60f, 6000000);
+    public static final BlockBase blockDecupleCompressed = new BlockSimple("decupleCompressed", Material.rock, 70f, 6000000);
     
     public static void preInit()
     {

@@ -78,7 +78,7 @@ dependencies {
 	//compile "tconstruct:TConstruct:${config.minecraft_version}-${config.tconstruct_version}:deobf"
     //compile "mcp.mobius.waila:Waila:${config.waila_version}:dev"
 	
-	compile "pneumaticCraft:PneumaticCraft-1.7.10:1.5.1-49:userdev"
+	compile "pneumaticCraft:PneumaticCraft-${config.minecraft_version}:${config.pneumaticcraft_version}:userdev"
 	
 	compile fileTree(dir: 'lib', include: '*.jar')
 }

@@ -12,7 +12,7 @@ public abstract class ItemBase extends Item
     {
         super();
         setUnlocalizedName(name);
-        maxStackSize = 1;
+        setMaxStackSize(1);
     }
     
     @Override
