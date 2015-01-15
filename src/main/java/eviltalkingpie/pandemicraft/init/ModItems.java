@@ -14,8 +14,8 @@ import eviltalkingpie.pandemicraft.utility.Reference;
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModItems
 {
-    public static final ItemBase  itemRawManaBucket          = new ItemRawManaBucket();
-    public static final ItemBase  itemDarkStar               = new ItemDarkStar();
+    public static final ItemBase  itemRawManaBucket          = new ItemRawManaBucket("rawManaBucket");
+    public static final ItemBase  itemDarkStar               = new ItemDarkStar("darkStar");
     public static final ItemBase  itemPulsingIngot           = new ItemSimple("pulsingIngot", 1);
     public static final ItemBase  itemRealityCrack           = new ItemSimple("realityCrack", 1);
     public static final ItemBase  itemStabilizedRealityCrack = new ItemSimple("stabilizedRealityCrack", 1);
@@ -24,8 +24,14 @@ public class ModItems
     public static final ItemBase  itemPulsingHeart           = new ItemSimple("pulsingHeart", 16);
     public static final ItemBase  itemInfusedHeart           = new ItemSimple("infusedHeart", 16);
     public static final ItemBase  itemDenseBlade             = new ItemSimple("denseBlade", 4);
-    public static final ItemSword itemPandemiSlasher         = new ItemPandemiSlasher();
-    public static final ItemBase  itemGreenHeart             = new ItemGreenHeart();
+    public static final ItemSword itemPandemiSlasher         = new ItemPandemiSlasher("pandemiSlasher");
+    public static final ItemBase  itemGreenHeart             = new ItemGreenHeart("greenHeart");
+    public static final ItemBase  itemLunarSlime             = new ItemSimple("lunarSlime", 64);
+    public static final ItemBase  itemManaPlasm              = new ItemSimple("manaPlasm", 64);
+    public static final ItemBase  itemCrystalLifeform        = new ItemSimple("crystalLifeform", 64);
+    public static final ItemBase  itemSusan                  = new ItemSimple("susan", 1);
+    public static final ItemBase  itemSuperiorComponents     = new ItemSimple("superiorComponents", 64);
+    public static final ItemBase  itemSuperiorCircuit        = new ItemSimple("superiorCircuit", 64);
     
     public static void preInit()
     {
@@ -41,6 +47,12 @@ public class ModItems
         registerItem(itemGreenHeart);
         registerItem(itemDenseBlade);
         registerItem(itemPandemiSlasher);
+        registerItem(itemLunarSlime);
+        registerItem(itemManaPlasm);
+        registerItem(itemCrystalLifeform);
+        registerItem(itemSusan);
+        registerItem(itemSuperiorComponents);
+        registerItem(itemSuperiorCircuit);
     }
     
     private static void registerItem(Item item)

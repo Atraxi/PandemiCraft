@@ -10,9 +10,9 @@ import eviltalkingpie.pandemicraft.handler.BucketHandler;
 
 public class ItemRawManaBucket extends ItemBase
 {
-    public ItemRawManaBucket()
+    public ItemRawManaBucket(String name)
     {
-        super("rawManaBucket");
+        super(name);
         setContainerItem(Items.bucket);
     }
     
@@ -48,7 +48,8 @@ public class ItemRawManaBucket extends ItemBase
             ++x;
             break;
         }
-        if (!player.canPlayerEdit(x, y, z, pos.sideHit, stack) || (!world.isAirBlock(x, y, z) && world.getBlock(x, y, z).getMaterial().isSolid()))
+        if (!player.canPlayerEdit(x, y, z, pos.sideHit, stack)
+                || (!world.isAirBlock(x, y, z) && world.getBlock(x, y, z).getMaterial().isSolid()))
         {
             return stack;
         }

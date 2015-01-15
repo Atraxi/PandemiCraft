@@ -5,9 +5,9 @@ import eviltalkingpie.pandemicraft.init.ModFluids;
 
 public class BlockFluidRawMana extends BlockFluidBase
 {
-    public BlockFluidRawMana()
+    public BlockFluidRawMana(String name)
     {
-        super(ModFluids.fluidRawMana, Material.water, "rawMana");
+        super(ModFluids.fluidRawMana, Material.water, name);
         setQuantaPerBlock(5);
     }
 }

@@ -26,10 +26,10 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
 {
     private static IIcon broken;
     
-    public ItemPandemiSlasher()
+    public ItemPandemiSlasher(String name)
     {
         super(Generic.denseTool);
-        this.setUnlocalizedName("pandemiSlasher");
+        this.setUnlocalizedName(name);
     }
     
     @Override

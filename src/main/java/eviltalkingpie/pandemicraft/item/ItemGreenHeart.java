@@ -5,9 +5,9 @@ import vazkii.botania.api.recipe.IElvenItem;
 
 public class ItemGreenHeart extends ItemBase implements IElvenItem
 {
-    public ItemGreenHeart()
+    public ItemGreenHeart(String name)
     {
-        super("greenHeart");
+        super(name);
         setMaxStackSize(16);
     }
     
@@ -16,4 +16,6 @@ public class ItemGreenHeart extends ItemBase implements IElvenItem
     {
         return true;
     }
+    
+    // TODO when eaten fully heal player, and provide absorbtion effect
 }

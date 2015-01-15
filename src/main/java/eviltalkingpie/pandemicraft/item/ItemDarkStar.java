@@ -6,9 +6,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemDarkStar extends ItemBase
 {
-    public ItemDarkStar()
+    public ItemDarkStar(String name)
     {
-        super("darkStar");
+        super(name);
         maxStackSize = 64;
     }
     

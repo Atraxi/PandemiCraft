@@ -27,5 +27,7 @@ public class Casting
                 1000), stableIngot, true, 200);
         tableCasting.addCastingRecipe(new ItemStack(ModItems.itemPulsingHeart), new FluidStack(FluidRegistry.getFluid("mana"),
                 500), new ItemStack(ModItems.itemBloodHeart), true, 250);
+        tableCasting.addCastingRecipe(new ItemStack(ModItems.itemManaPlasm), new FluidStack(FluidRegistry.getFluid("mana"), 500),
+                new ItemStack(ModItems.itemLunarSlime), true, 100);
     }
 }

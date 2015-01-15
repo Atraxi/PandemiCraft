@@ -7,10 +7,13 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import eviltalkingpie.pandemicraft.bloodmagic.Altar;
 import eviltalkingpie.pandemicraft.bloodmagic.BindingRitual;
 import eviltalkingpie.pandemicraft.botania.ElvenGateway;
+import eviltalkingpie.pandemicraft.botania.Orechid;
 import eviltalkingpie.pandemicraft.handler.BucketHandler;
+import eviltalkingpie.pandemicraft.handler.CommandHeldItem;
 import eviltalkingpie.pandemicraft.handler.ConfigurationHandler;
 import eviltalkingpie.pandemicraft.init.Generic;
 import eviltalkingpie.pandemicraft.init.ModBlocks;
@@ -23,6 +26,7 @@ import eviltalkingpie.pandemicraft.thaumcraft.Crucible;
 import eviltalkingpie.pandemicraft.thaumcraft.Infusion;
 import eviltalkingpie.pandemicraft.tinkers.Alloys;
 import eviltalkingpie.pandemicraft.tinkers.Casting;
+import eviltalkingpie.pandemicraft.tinkers.DryingRack;
 import eviltalkingpie.pandemicraft.tinkers.Melting;
 import eviltalkingpie.pandemicraft.utility.Reference;
 
@@ -57,6 +61,7 @@ public class PandemiCraft
         Alloys.init();
         Melting.init();
         Casting.init();
+        DryingRack.init();
         // Thaumcraft recipes
         ArcaneWorktable.init();
         Crucible.init();
@@ -68,11 +73,18 @@ public class PandemiCraft
         PressureChamber.init();
         // Botania recipes
         ElvenGateway.init();
+        Orechid.init();
     }
     
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
         Generic.postInit();
+    }
+    
+    @Mod.EventHandler
+    public void serverStart(FMLServerStartingEvent event)
+    {
+        event.registerServerCommand(new CommandHeldItem());
     }
 }
