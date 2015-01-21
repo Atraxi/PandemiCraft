@@ -32,6 +32,7 @@ public class ModItems
     public static final ItemBase  itemSusan                  = new ItemSimple("susan", 1);
     public static final ItemBase  itemSuperiorComponents     = new ItemSimple("superiorComponents", 64);
     public static final ItemBase  itemSuperiorCircuit        = new ItemSimple("superiorCircuit", 64);
+    public static final ItemBase  itemIntermediateComponents = new ItemSimple("partialComponents", 64);
     
     public static void preInit()
     {
@@ -53,6 +54,7 @@ public class ModItems
         registerItem(itemSusan);
         registerItem(itemSuperiorComponents);
         registerItem(itemSuperiorCircuit);
+        registerItem(itemIntermediateComponents);
     }
     
     private static void registerItem(Item item)

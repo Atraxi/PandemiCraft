@@ -9,7 +9,9 @@ public class LaserAssembly
 {
     public static void init()
     {
-        AssemblyRecipe.drillLaserRecipes.add(new AssemblyRecipe(new ItemStack(GameRegistry.findItem("ThermalFoundation",
-                "material"), 1, 74), new ItemStack(ModItems.itemSuperiorComponents)));
+        AssemblyRecipe.addDrillRecipe(new ItemStack(GameRegistry.findItem("ThermalFoundation", "material"), 1, 74),
+                ModItems.itemIntermediateComponents);
+        AssemblyRecipe.addLaserRecipe(new ItemStack(ModItems.itemIntermediateComponents), new ItemStack(
+                ModItems.itemSuperiorComponents));
     }
 }
