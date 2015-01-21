@@ -1,6 +1,8 @@
 package eviltalkingpie.pandemicraft;
 
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.util.EnumHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -8,26 +10,31 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import eviltalkingpie.pandemicraft.bloodmagic.Alchemy;
 import eviltalkingpie.pandemicraft.bloodmagic.Altar;
 import eviltalkingpie.pandemicraft.bloodmagic.BindingRitual;
 import eviltalkingpie.pandemicraft.botania.ElvenGateway;
 import eviltalkingpie.pandemicraft.botania.Orechid;
+import eviltalkingpie.pandemicraft.enderio.SliceAndSplice;
+import eviltalkingpie.pandemicraft.enderio.Vat;
 import eviltalkingpie.pandemicraft.handler.BucketHandler;
 import eviltalkingpie.pandemicraft.handler.CommandHeldItem;
 import eviltalkingpie.pandemicraft.handler.ConfigurationHandler;
-import eviltalkingpie.pandemicraft.init.Generic;
 import eviltalkingpie.pandemicraft.init.ModBlocks;
 import eviltalkingpie.pandemicraft.init.ModFluids;
 import eviltalkingpie.pandemicraft.init.ModItems;
+import eviltalkingpie.pandemicraft.init.Tweaks;
+import eviltalkingpie.pandemicraft.init.VanillaRecipes;
+import eviltalkingpie.pandemicraft.pneumaticcraft.LaserAssembly;
 import eviltalkingpie.pandemicraft.pneumaticcraft.PressureChamber;
 import eviltalkingpie.pandemicraft.proxy.CommonProxy;
+import eviltalkingpie.pandemicraft.railcraft.CokeOven;
 import eviltalkingpie.pandemicraft.thaumcraft.ArcaneWorktable;
 import eviltalkingpie.pandemicraft.thaumcraft.Crucible;
 import eviltalkingpie.pandemicraft.thaumcraft.Infusion;
 import eviltalkingpie.pandemicraft.tinkers.Alloys;
 import eviltalkingpie.pandemicraft.tinkers.Casting;
 import eviltalkingpie.pandemicraft.tinkers.DryingRack;
-import eviltalkingpie.pandemicraft.tinkers.Melting;
 import eviltalkingpie.pandemicraft.utility.Reference;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS,
@@ -38,6 +45,8 @@ public class PandemiCraft
     public static PandemiCraft instance;
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static CommonProxy  proxy;
+    
+    public static ToolMaterial denseTool = EnumHelper.addToolMaterial("denseTool", 5, 25, 50, 0, 50);
     
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -59,7 +68,6 @@ public class PandemiCraft
         ModFluids.init();
         // Tinkers Construct recipes
         Alloys.init();
-        Melting.init();
         Casting.init();
         DryingRack.init();
         // Thaumcraft recipes
@@ -69,17 +77,26 @@ public class PandemiCraft
         // Blood Magic recipes
         Altar.init();
         BindingRitual.init();
+        Alchemy.init();
         // PneumaticCraft recipes
         PressureChamber.init();
+        LaserAssembly.init();
         // Botania recipes
         ElvenGateway.init();
         Orechid.init();
+        // Railcraft recipes
+        CokeOven.init();
+        // EnderIO recipes
+        Vat.init();
+        SliceAndSplice.init();
+        
+        VanillaRecipes.init();
     }
     
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        Generic.postInit();
+        Tweaks.postInit();
     }
     
     @Mod.EventHandler

@@ -1,5 +1,6 @@
 package eviltalkingpie.pandemicraft.item;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
@@ -18,7 +19,7 @@ import net.minecraft.world.World;
 import thaumcraft.api.IRepairableExtended;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import eviltalkingpie.pandemicraft.init.Generic;
+import eviltalkingpie.pandemicraft.PandemiCraft;
 import eviltalkingpie.pandemicraft.utility.Logger;
 import eviltalkingpie.pandemicraft.utility.Reference;
 
@@ -28,7 +29,7 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
     
     public ItemPandemiSlasher(String name)
     {
-        super(Generic.denseTool);
+        super(PandemiCraft.denseTool);
         this.setUnlocalizedName(name);
     }
     
@@ -56,12 +57,12 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
                 }
                 entity.attackEntityFrom(DamageSource.outOfWorld, ((EntityLiving) entity).getMaxHealth() / 2);
             }
-            else
+            else if (stack.getItemDamage() == 25)
             {
-                entity.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) player), 10);
+                entity.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) player), 5);
             }
         }
-        return true;
+        return false;
     }
     
     @Override
@@ -69,7 +70,7 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
     {
         if (player instanceof EntityPlayer && stack.getItemDamage() == 25)
         {
-            ((EntityPlayer) player).addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 1));
+            ((EntityPlayer) player).addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 2));
         }
     }
     
@@ -96,7 +97,7 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
             return true;
         }
         else
-        {// [0:{lvl:5s,id:19s},1:{lvl:2s,id:151s}]
+        {
             NBTTagList enchants = stack.getEnchantmentTagList();
             for (int i = 0; i < enchants.tagCount(); i++)
             {
@@ -113,5 +114,41 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
             stack.setItemDamage(24);
             return true;
         }
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean showDurabilityBar(ItemStack stack)
+    {
+        if (stack.getItemDamage() == 25)
+        {
+            return false;
+        }
+        else
+        {
+            return stack.isItemDamaged();
+        }
+    }
+    
+    @Override
+    public boolean onBlockDestroyed(ItemStack stack, World p_150894_2_, Block p_150894_3_, int p_150894_4_, int p_150894_5_,
+            int p_150894_6_, EntityLivingBase p_150894_7_)
+    {
+        if (p_150894_3_.getBlockHardness(p_150894_2_, p_150894_4_, p_150894_5_, p_150894_6_) != 0.0D)
+        {
+            if (stack.getItemDamage() < 24)
+            {
+                stack.damageItem(2, p_150894_7_);
+            }
+            else if (stack.getItemDamage() < 25)
+            {
+                stack.damageItem(1, p_150894_7_);
+            }
+            if (stack.getItemDamage() == 25)
+            {
+                stack.addEnchantment(Enchantment.knockback, 5);
+            }
+        }
+        return true;
     }
 }

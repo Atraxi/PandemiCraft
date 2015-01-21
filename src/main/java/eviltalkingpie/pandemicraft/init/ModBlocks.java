@@ -8,7 +8,6 @@ import eviltalkingpie.pandemicraft.blocks.BlockFluidBase;
 import eviltalkingpie.pandemicraft.blocks.BlockFluidRawMana;
 import eviltalkingpie.pandemicraft.blocks.BlockMoonStone;
 import eviltalkingpie.pandemicraft.blocks.BlockSimple;
-import eviltalkingpie.pandemicraft.utility.Logger;
 import eviltalkingpie.pandemicraft.utility.Reference;
 
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
@@ -18,7 +17,7 @@ public class ModBlocks
     public static final BlockBase blockNonupleCompressed = new BlockSimple("nonupleCompressed", Material.rock, 60f, 6000000);
     public static final BlockBase blockDecupleCompressed = new BlockSimple("decupleCompressed", Material.rock, 70f, 6000000);
     public static final BlockBase blockMoonStone         = new BlockMoonStone("moonStone");
-    public static final BlockBase blockPermafrost        = new BlockSimple("permaFrost", Material.ice, 15f, 500);
+    public static final BlockBase blockPermafrost        = new BlockSimple("permaFrost", Material.ice, 5f, 500);
     
     public static void preInit()
     {
@@ -30,7 +29,6 @@ public class ModBlocks
         registerBlock(blockPermafrost);
         OreDictionary.registerOre("oreMoonStone", ModBlocks.blockMoonStone);
         OreDictionary.registerOre("oreIce", ModBlocks.blockPermafrost);
-        Logger.info(OreDictionary.getOreNames());
     }
     
     private static void registerBlock(BlockBase block)

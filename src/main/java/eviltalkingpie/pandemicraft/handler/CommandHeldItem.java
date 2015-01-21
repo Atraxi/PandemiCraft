@@ -30,7 +30,7 @@ public class CommandHeldItem extends CommandBase
                 ChatComponentText chatMessage = new ChatComponentText(player.getHeldItem().toString());
                 if (player.getHeldItem().stackTagCompound != null)
                 {
-                    chatMessage.appendText("\n" + player.getHeldItem().stackTagCompound.toString());
+                    chatMessage.appendText("--" + player.getHeldItem().stackTagCompound.toString());
                 }
                 sender.addChatMessage(chatMessage);
             }

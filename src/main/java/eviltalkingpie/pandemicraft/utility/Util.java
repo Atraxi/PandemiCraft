@@ -28,4 +28,12 @@ public class Util
         item.setTagCompound(nbt);
         return item;
     }
+    
+    public static ItemStack setNBTCompound(ItemStack item, String tagName, NBTTagCompound tag)
+    {
+        NBTTagCompound nbt = new NBTTagCompound();
+        nbt.setTag(tagName, tag);
+        item.setTagCompound(nbt);
+        return item;
+    }
 }
