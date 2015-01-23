@@ -151,4 +151,18 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
         }
         return true;
     }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean p_77624_4_)
+    {
+        if (stack.getItemDamage() == 25)
+        {
+            list.add(StatCollector.translateToLocal(this.getUnlocalizedName() + "Broken.flavorText"));
+        }
+        else
+        {
+            list.add(StatCollector.translateToLocal(this.getUnlocalizedName() + ".flavorText"));
+        }
+    }
 }
