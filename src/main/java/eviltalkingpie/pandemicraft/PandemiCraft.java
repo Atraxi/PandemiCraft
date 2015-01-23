@@ -1,8 +1,6 @@
 package eviltalkingpie.pandemicraft;
 
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.util.EnumHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -45,8 +43,6 @@ public class PandemiCraft
     public static PandemiCraft instance;
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static CommonProxy  proxy;
-    
-    public static ToolMaterial denseTool = EnumHelper.addToolMaterial("denseTool", 5, 25, 50, 0, 50);
     
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)

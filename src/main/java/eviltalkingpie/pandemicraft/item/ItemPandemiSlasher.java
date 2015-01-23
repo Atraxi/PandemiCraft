@@ -1,12 +1,18 @@
 package eviltalkingpie.pandemicraft.item;
 
+import java.lang.reflect.Field;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
@@ -15,22 +21,76 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.EnumHelper;
 import thaumcraft.api.IRepairableExtended;
+
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import eviltalkingpie.pandemicraft.PandemiCraft;
 import eviltalkingpie.pandemicraft.utility.Logger;
 import eviltalkingpie.pandemicraft.utility.Reference;
 
 public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
 {
-    private static IIcon broken;
+    private static IIcon       broken;
+    Field                      damage;
+    
+    public static ToolMaterial denseTool = EnumHelper.addToolMaterial("denseTool", 5, 25, 50, 0, 50);
     
     public ItemPandemiSlasher(String name)
     {
-        super(PandemiCraft.denseTool);
+        super(denseTool);
         this.setUnlocalizedName(name);
+        setDamage(0f);
+    }
+    
+    private void setDamage(float f)
+    {
+        
+        try
+        {
+            if (damage == null)
+            {
+                damage = this.getClass().getSuperclass().getDeclaredField("field_150934_a");
+                damage.setAccessible(true);
+            }
+            damage.setFloat(this, f);
+        }
+        catch (NoSuchFieldException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        catch (SecurityException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        catch (IllegalArgumentException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        catch (IllegalAccessException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Set the weapon properties for the 'broken' state (when stack damage==25)
+     * 
+     * @param stack
+     */
+    private void setBroken(ItemStack stack)
+    {
+        stack.addEnchantment(Enchantment.knockback, 5);
+        setDamage(5);
     }
     
     @Override
@@ -53,7 +113,7 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
                 stack.damageItem(1, player);
                 if (stack.getItemDamage() == 25)
                 {
-                    stack.addEnchantment(Enchantment.knockback, 5);
+                    setBroken(stack);
                 }
                 entity.attackEntityFrom(DamageSource.outOfWorld, ((EntityLiving) entity).getMaxHealth() / 2);
             }
@@ -112,6 +172,7 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
             }
             Logger.info(enchants);
             stack.setItemDamage(24);
+            setDamage(0);
             return true;
         }
     }
@@ -146,7 +207,7 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
             }
             if (stack.getItemDamage() == 25)
             {
-                stack.addEnchantment(Enchantment.knockback, 5);
+                setBroken(stack);
             }
         }
         return true;
@@ -164,5 +225,28 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
         {
             list.add(StatCollector.translateToLocal(this.getUnlocalizedName() + ".flavorText"));
         }
+    }
+    
+    @Override
+    public Multimap getAttributeModifiers(ItemStack stack)
+    {
+        Multimap multimap = super.getAttributeModifiers(stack);
+        if (stack.getItemDamage() < 25)
+        {
+            multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(
+                    field_111210_e, "Weapon modifier", Item.itemRand.nextInt(90) + 10, 0));
+        }
+        else
+        {
+            multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(
+                    field_111210_e, "Weapon modifier", 5, 0));
+        }
+        return multimap;
+    }
+    
+    @Override
+    public Multimap getItemAttributeModifiers()
+    {
+        return HashMultimap.create();
     }
 }
