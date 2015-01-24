@@ -18,7 +18,7 @@ public class Infusion
         if(ConfigurationHandler.isPandemiCraft)
         {
             ThaumcraftApi.addInfusionCraftingRecipe("OUTERREV",
-                    new ItemStack(ModItems.itemRealityTear), 1000,
+                    new ItemStack(ModItems.itemRealityTear), 800,
                     new AspectList().add(Aspect.ELDRITCH/* Alienis */, 64).add(Aspect.MAGIC/* Praecantio */, 64)
                             .add(Aspect.ENTROPY/* Perditio */, 64).add(Aspect.VOID/* Vacuos */, 64)
                             .add(Aspect.ENERGY/* Potentia */, 64).add(Aspect.AURA/* Auram */, 64)
@@ -43,7 +43,7 @@ public class Infusion
         else//TODO add config for servers to add their own players
         {
             ThaumcraftApi.addInfusionCraftingRecipe("OUTERREV",
-                    new ItemStack(ModItems.itemRealityTear), 1000,
+                    new ItemStack(ModItems.itemRealityTear), 800,
                     new AspectList().add(Aspect.ELDRITCH/* Alienis */, 64).add(Aspect.MAGIC/* Praecantio */, 64)
                             .add(Aspect.ENTROPY/* Perditio */, 64).add(Aspect.VOID/* Vacuos */, 64)
                             .add(Aspect.ENERGY/* Potentia */, 64).add(Aspect.AURA/* Auram */, 64)
@@ -65,7 +65,7 @@ public class Infusion
                     });
         }
         ThaumcraftApi.addInfusionCraftingRecipe("OUTERREV",
-                new ItemStack(ModItems.itemInfusedHeart), 800,
+                new ItemStack(ModItems.itemInfusedHeart), 600,
                 new AspectList().add(Aspect.LIFE, 40).add(Aspect.HEAL, 40),
                 new ItemStack(ModItems.itemPulsingHeart),
                 new ItemStack[]{

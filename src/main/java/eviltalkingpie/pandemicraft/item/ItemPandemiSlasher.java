@@ -122,7 +122,7 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
                 entity.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) player), 5);
             }
         }
-        return false;
+        return true;
     }
     
     @Override
@@ -130,7 +130,7 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
     {
         if (player instanceof EntityPlayer && stack.getItemDamage() == 25)
         {
-            ((EntityPlayer) player).addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 2));
+            ((EntityPlayer) player).addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 0, 2));
         }
     }
     

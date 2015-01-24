@@ -75,7 +75,7 @@ dependencies {
     compile "codechicken:NotEnoughItems:${config.minecraft_version}-${config.NEI_version}:dev"
     compile "codechicken:ForgeMultipart:${config.minecraft_version}-${config.fmp_version}:dev"
 	compile "mantle:Mantle:${config.minecraft_version}-${config.mantle_version}:deobf"
-	compile "appeng:appliedenergistics2:${config.appliedenergistics_version}:dev"
+	//compile "appeng:appliedenergistics2:${config.appliedenergistics_version}:dev"
 	//compile "tconstruct:TConstruct:${config.minecraft_version}-${config.tconstruct_version}:deobf"
     //compile "mcp.mobius.waila:Waila:${config.waila_version}:dev"
 	
