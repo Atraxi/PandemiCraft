@@ -19,6 +19,6 @@ public class CokeOven
         ring.setItemDamage(0);
         RailcraftCraftingManager.cokeOven.addRecipe(ring, true, true,
                 new ItemStack(GameRegistry.findItem("Botania", "manaResource"), 1, 4),
-                new FluidStack(ModFluids.fluidRawMana, 500), 1800);
+                new FluidStack(ModFluids.fluidRawMana, 500), 600);
     }
 }

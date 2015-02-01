@@ -8,10 +8,13 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.ShapedRecipes;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.research.ResearchCategories;
-import WayofTime.alchemicalWizardry.ModBlocks;
+import vazkii.botania.api.BotaniaAPI;
+import vazkii.botania.api.lexicon.LexiconEntry;
+import vazkii.botania.common.lexicon.page.PageCraftingRecipe;
 import WayofTime.alchemicalWizardry.api.items.ShapedBloodOrbRecipe;
 import appeng.api.AEApi;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -58,9 +61,16 @@ public class Tweaks
                     Logger.info("Removed Octadic Capacitor recipe");
                     Leash.remove();
                 }
-                else if (ItemStack.areItemStacksEqual(itemStack, new ItemStack(ModBlocks.blockTeleposer)))
+                else if (ItemStack.areItemStacksEqual(itemStack, new ItemStack(
+                        WayofTime.alchemicalWizardry.ModBlocks.blockTeleposer)))
                 {
                     Logger.info("Removed Teleposer recipe");
+                    Leash.remove();
+                }
+                else if (ItemStack.areItemStacksEqual(itemStack, new ItemStack(
+                        WayofTime.alchemicalWizardry.ModItems.itemSigilOfSupression)))
+                {
+                    Logger.info("Removed Sigil of Supression recipe");
                     Leash.remove();
                 }
                 else if (ItemStack.areItemStacksEqual(itemStack, new ItemStack(GameRegistry.findItem("AWWayofTime", "airSigil"),
@@ -162,8 +172,8 @@ public class Tweaks
                         .materials().materialCell16kPart.item(), 1, 37), 'q', new ItemStack(
                         AEApi.instance().blocks().blockQuartzGlass.block()), 's', new ItemStack(ModItems.itemSuperiorCircuit));
         // Teleposer
-        GameRegistry.addRecipe(new ItemStack(ModBlocks.blockTeleposer), new Object[] { "ggg", "ese", "ggg", 'g',
-                new ItemStack(Items.gold_ingot), 's', new ItemStack(ModItems.itemRealityTear), 'e',
+        GameRegistry.addRecipe(new ItemStack(WayofTime.alchemicalWizardry.ModBlocks.blockTeleposer), new Object[] { "ggg", "ese",
+                "ggg", 'g', new ItemStack(Items.gold_ingot), 's', new ItemStack(ModItems.itemRealityTear), 'e',
                 new ItemStack(Items.ender_pearl) });
         // Air Sigil
         GameRegistry.addRecipe(new ShapedBloodOrbRecipe(new ItemStack(WayofTime.alchemicalWizardry.ModItems.airSigil),
@@ -171,6 +181,14 @@ public class Tweaks
                         'g', new ItemStack(Items.ghast_tear), 's',
                         new ItemStack(WayofTime.alchemicalWizardry.ModItems.reinforcedSlate), 'o',
                         new ItemStack(WayofTime.alchemicalWizardry.ModItems.apprenticeBloodOrb) }));
+        // Sigil of Supression
+        GameRegistry.addRecipe(new ShapedBloodOrbRecipe(
+                new ItemStack(WayofTime.alchemicalWizardry.ModItems.itemSigilOfSupression), new Object[] { "wtl", "wvl", "wol",
+                        Character.valueOf('v'), new ItemStack(WayofTime.alchemicalWizardry.ModItems.voidSigil),
+                        Character.valueOf('t'), new ItemStack(WayofTime.alchemicalWizardry.ModItems.enhancedTelepositionFocus),
+                        Character.valueOf('o'), new ItemStack(WayofTime.alchemicalWizardry.ModItems.masterBloodOrb),
+                        Character.valueOf('l'), new ItemStack(Items.lava_bucket), Character.valueOf('w'),
+                        new ItemStack(Items.water_bucket) }));
         // Phantom Bridge
         GameRegistry.addRecipe(new ShapedBloodOrbRecipe(new ItemStack(WayofTime.alchemicalWizardry.ModItems.sigilOfTheBridge),
                 new Object[] { "nan", "nsn", "ror", 'n', new ItemStack(Blocks.stone), 'r', new ItemStack(Blocks.soul_sand), 's',
