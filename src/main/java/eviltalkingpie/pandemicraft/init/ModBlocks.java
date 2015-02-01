@@ -8,9 +8,7 @@ import eviltalkingpie.pandemicraft.blocks.BlockFluidBase;
 import eviltalkingpie.pandemicraft.blocks.BlockFluidRawMana;
 import eviltalkingpie.pandemicraft.blocks.BlockMoonStone;
 import eviltalkingpie.pandemicraft.blocks.BlockSimple;
-import eviltalkingpie.pandemicraft.utility.Reference;
 
-@GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModBlocks
 {
     public static BlockFluidBase  blockFluidRawMana;

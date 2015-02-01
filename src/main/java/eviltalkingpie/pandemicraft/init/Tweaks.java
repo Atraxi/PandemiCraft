@@ -178,10 +178,15 @@ public class Tweaks
                         new ItemStack(WayofTime.alchemicalWizardry.ModItems.magicianBloodOrb), 'a',
                         new ItemStack(ModItems.itemSusan) }));
         // Flugel Tiara
-        GameRegistry.addShapedRecipe(new ItemStack(GameRegistry.findItem("Botania", "flightTiara"), 1, 0), "ggg", "ese", "fef",
-                'g', new ItemStack(GameRegistry.findItem("Botania", "manaResource"), 1, 5), 'e',
-                new ItemStack(GameRegistry.findItem("Botania", "manaResource"), 1, 7), 's', new ItemStack(ModItems.itemSusan),
-                'f', new ItemStack(Items.feather));
+        ShapedRecipes recipeTiara =
+                new ShapedRecipes(3, 3, new ItemStack[] { new ItemStack(GameRegistry.findItem("Botania", "manaResource"), 1, 5),
+                        new ItemStack(GameRegistry.findItem("Botania", "manaResource"), 1, 5),
+                        new ItemStack(GameRegistry.findItem("Botania", "manaResource"), 1, 5),
+                        new ItemStack(GameRegistry.findItem("Botania", "manaResource"), 1, 7), new ItemStack(ModItems.itemSusan),
+                        new ItemStack(GameRegistry.findItem("Botania", "manaResource"), 1, 7), new ItemStack(Items.feather),
+                        new ItemStack(GameRegistry.findItem("Botania", "manaResource"), 1, 7), new ItemStack(Items.feather) },
+                        new ItemStack(GameRegistry.findItem("Botania", "flightTiara"), 1, 0));
+        GameRegistry.addRecipe(recipeTiara);
         // Ender Marker
         GameRegistry.addShapedRecipe(new ItemStack(GameRegistry.findItem("ExtraUtilities", "endMarker"), 1, 0), "d", "o", "o",
                 'd', new ItemStack(Items.diamond), 'o', new ItemStack(
@@ -190,5 +195,20 @@ public class Tweaks
         GameRegistry.addShapedRecipe(new ItemStack(GameRegistry.findItem("ExtraUtilities", "enderQuarryUpgrade"), 1, 0), " o ",
                 "odo", " o ", 'd', new ItemStack(GameRegistry.findItem("ExtraUtilities", "decorativeBlock1"), 1, 12), 'o',
                 new ItemStack(GameRegistry.findItem("ExtraUtilities", "decorativeBlock1"), 1, 1));
+        
+        // Lexica Botania Editing
+        Logger.info("Lexicon Entries:");
+        int i = 0;
+        for (Iterator iterator = BotaniaAPI.getAllEntries().iterator(); iterator.hasNext(); i++)
+        {
+            LexiconEntry lexiconEntry = (LexiconEntry) iterator.next();
+            Logger.info(i + "-" + lexiconEntry.getUnlocalizedName());
+            if (lexiconEntry.getUnlocalizedName().equals("botania.entry.flightTiara"))
+            {
+                Logger.info("Flugel Tiara Lexicon page modified");
+                lexiconEntry.pages.remove(1);
+                lexiconEntry.pages.add(1, new PageCraftingRecipe("botania.entry.flightTiara", recipeTiara));
+            }
+        }
     }
 }

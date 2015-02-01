@@ -17,8 +17,8 @@ public class Infusion
         //@formatter:off
         if(ConfigurationHandler.isPandemiCraft)
         {
-            ThaumcraftApi.addInfusionCraftingRecipe("OUTERREV",
-                    new ItemStack(ModItems.itemRealityTear), 800,
+            ThaumcraftApi.addInfusionCraftingRecipe(ModItems.itemRealityTear.getResearch(),
+                    new ItemStack(ModItems.itemRealityTear), 200,
                     new AspectList().add(Aspect.ELDRITCH/* Alienis */, 64).add(Aspect.MAGIC/* Praecantio */, 64)
                             .add(Aspect.ENTROPY/* Perditio */, 64).add(Aspect.VOID/* Vacuos */, 64)
                             .add(Aspect.ENERGY/* Potentia */, 64).add(Aspect.AURA/* Auram */, 64)
@@ -38,11 +38,13 @@ public class Infusion
                     Util.setNBTString(new ItemStack(Items.skull, 1, 3), "SkullOwner", "IdioticMage"),
                     Util.setNBTString(new ItemStack(Items.skull, 1, 3), "SkullOwner", "Atticus_Taylor"),
                     Util.setNBTString(new ItemStack(Items.skull, 1, 3), "SkullOwner", "Elroygaffen"),
+                    Util.setNBTString(new ItemStack(Items.skull, 1, 3), "SkullOwner", "Kitsyfluff"),
+                    Util.setNBTString(new ItemStack(Items.skull, 1, 3), "SkullOwner", "TheKvasir")
                     });
         }
         else//TODO add config for servers to add their own players
         {
-            ThaumcraftApi.addInfusionCraftingRecipe("OUTERREV",
+            ThaumcraftApi.addInfusionCraftingRecipe(ModItems.itemRealityTear.getResearch(),
                     new ItemStack(ModItems.itemRealityTear), 800,
                     new AspectList().add(Aspect.ELDRITCH/* Alienis */, 64).add(Aspect.MAGIC/* Praecantio */, 64)
                             .add(Aspect.ENTROPY/* Perditio */, 64).add(Aspect.VOID/* Vacuos */, 64)
@@ -64,7 +66,7 @@ public class Infusion
                     new ItemStack(ModItems.itemDarkStar)
                     });
         }
-        ThaumcraftApi.addInfusionCraftingRecipe("OUTERREV",
+        ThaumcraftApi.addInfusionCraftingRecipe(ModItems.itemInfusedHeart.getResearch(),
                 new ItemStack(ModItems.itemInfusedHeart), 600,
                 new AspectList().add(Aspect.LIFE, 40).add(Aspect.HEAL, 40),
                 new ItemStack(ModItems.itemPulsingHeart),

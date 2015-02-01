@@ -12,7 +12,7 @@ public class Crucible
     public static void init()
     {
         ThaumcraftApi.addCrucibleRecipe(
-                "OUTERREV",
+                ModItems.itemRealityCrack.getResearch(),
                 new ItemStack(ModItems.itemRealityCrack),
                 new ItemStack(ModItems.itemPulsingIngot),
                 new AspectList().add(Aspect.ELDRITCH/* Alienis */, 20).add(Aspect.MAGIC/* Praecantio */, 20)

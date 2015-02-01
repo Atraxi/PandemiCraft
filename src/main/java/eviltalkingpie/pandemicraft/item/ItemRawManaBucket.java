@@ -12,7 +12,7 @@ public class ItemRawManaBucket extends ItemBase
 {
     public ItemRawManaBucket(String name)
     {
-        super(name);
+        super(name, "", null);
         setContainerItem(Items.bucket);
     }
     

@@ -13,7 +13,7 @@ public class ArcaneWorktable
     public static void init()
     {
         //@formatter:off
-        ThaumcraftApi.addArcaneCraftingRecipe("OUTERREV", new ItemStack(ModItems.itemStabilizedRealityCrack),
+        ThaumcraftApi.addArcaneCraftingRecipe(ModItems.itemStabilizedRealityCrack.getResearch(), new ItemStack(ModItems.itemStabilizedRealityCrack),
                 new AspectList().add(Aspect.ORDER, 150).add(Aspect.EARTH, 20),
                 "pip",
                 "ici",
@@ -21,7 +21,7 @@ public class ArcaneWorktable
                 'c', new ItemStack(ModItems.itemRealityCrack),
                 'i', new ItemStack(GameRegistry.findItem("ThaumicTinkerer", "kamiResource"), 1, 1),//ichor cloth
                 'p', new ItemStack(GameRegistry.findItem("Botania", "manaResource"), 1, 8));//pixie dust
-        ThaumcraftApi.addArcaneCraftingRecipe("OUTERREV", new ItemStack(ModItems.itemDarkStar),
+        ThaumcraftApi.addArcaneCraftingRecipe(ModItems.itemDarkStar.getResearch(), new ItemStack(ModItems.itemDarkStar),
                 new AspectList().add(Aspect.ENTROPY, 150).add(Aspect.EARTH, 20),
                 "gdg",
                 "dnd",
