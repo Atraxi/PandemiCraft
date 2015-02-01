@@ -1,5 +1,6 @@
 package eviltalkingpie.pandemicraft;
 
+import net.minecraft.launchwrapper.Launch;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -43,6 +44,8 @@ public class PandemiCraft
     public static PandemiCraft instance;
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static CommonProxy  proxy;
+    
+    public static boolean      deobf = (Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");
     
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)

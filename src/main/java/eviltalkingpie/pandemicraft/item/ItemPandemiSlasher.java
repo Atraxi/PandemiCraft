@@ -31,6 +31,7 @@ import com.google.common.collect.Multimap;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import eviltalkingpie.pandemicraft.PandemiCraft;
 import eviltalkingpie.pandemicraft.utility.Logger;
 import eviltalkingpie.pandemicraft.utility.Reference;
 
@@ -115,7 +116,9 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
                 {
                     setBroken(stack);
                 }
+                
                 entity.attackEntityFrom(DamageSource.outOfWorld, ((EntityLiving) entity).getMaxHealth() / 2);
+                
             }
             else if (stack.getItemDamage() == 25)
             {
@@ -130,7 +133,7 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
     {
         if (player instanceof EntityPlayer && stack.getItemDamage() == 25)
         {
-            ((EntityPlayer) player).addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 0, 2));
+            ((EntityPlayer) player).addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 0, 1));
         }
     }
     
@@ -227,21 +230,46 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
         }
     }
     
+    //@formatter:off
     @Override
     public Multimap getAttributeModifiers(ItemStack stack)
     {
-        Multimap multimap = super.getAttributeModifiers(stack);
-        if (stack.getItemDamage() < 25)
+        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+        boolean isTooltip;
+        if(PandemiCraft.deobf)
         {
-            multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(
-                    field_111210_e, "Weapon modifier", Item.itemRand.nextInt(90) + 10, 0));
+            isTooltip = stackTraceElements[3].getMethodName().equals("getTooltip");
         }
         else
         {
-            multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(
-                    field_111210_e, "Weapon modifier", 5, 0));
+            isTooltip = stackTraceElements[3].getMethodName().equals("func_82840_a");
         }
-        return multimap;
+        
+//        Logger.info("Stacktrace:");
+//        for (StackTraceElement element : stackTraceElements)
+//        {
+//            Logger.info(element);
+//        }
+        
+        if(stackTraceElements.length>0 && isTooltip)
+        {
+            Multimap multimap = super.getAttributeModifiers(stack);
+            if (stack.getItemDamage() < 25)
+            {
+                multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(
+                        field_111210_e, "Weapon modifier", Item.itemRand.nextInt(90) + 10, 0));
+            }
+            else
+            {
+                multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(
+                        field_111210_e, "Weapon modifier", 5, 0));
+            }
+            return multimap;
+        }
+        else
+        {
+            return HashMultimap.create();
+        }
     }
     
     @Override
@@ -249,4 +277,5 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
     {
         return HashMultimap.create();
     }
+    //@formatter:on
 }

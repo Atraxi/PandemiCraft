@@ -8,6 +8,7 @@ import net.minecraftforge.client.event.TextureStitchEvent.Pre;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import eviltalkingpie.pandemicraft.PandemiCraft;
 import eviltalkingpie.pandemicraft.handler.ConfigurationHandler;
 import eviltalkingpie.pandemicraft.utility.Reference;
 
@@ -23,7 +24,15 @@ public class ClientProxy extends CommonProxy
             IIcon itemIcon = event.map.registerIcon(Reference.MOD_ID + ":" + "jarrenPick");
             try
             {
-                Field icon = Items.wooden_pickaxe.getClass().getSuperclass().getSuperclass().getDeclaredField("itemIcon");
+                Field icon;
+                if (PandemiCraft.deobf)
+                {
+                    icon = Items.wooden_pickaxe.getClass().getSuperclass().getSuperclass().getDeclaredField("itemIcon");
+                }
+                else
+                {
+                    icon = Items.wooden_pickaxe.getClass().getSuperclass().getSuperclass().getDeclaredField("field_77791_bV");
+                }
                 icon.setAccessible(true);
                 icon.set(Items.wooden_pickaxe, itemIcon);
             }
