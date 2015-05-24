@@ -129,11 +129,11 @@ public class ItemPandemiSlasher extends ItemSword implements IRepairableExtended
     }
     
     @Override
-    public void onUpdate(ItemStack stack, World world, Entity player, int p_77663_4_, boolean p_77663_5_)
+    public void onUpdate(ItemStack stack, World world, Entity entity, int p_77663_4_, boolean p_77663_5_)
     {
-        if (player instanceof EntityPlayer && stack.getItemDamage() == 25)
+        if (entity instanceof EntityLivingBase && stack.getItemDamage() == 25)
         {
-            ((EntityPlayer) player).addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 0, 1));
+            ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 0, 1));
         }
     }
     

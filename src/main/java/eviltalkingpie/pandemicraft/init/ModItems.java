@@ -9,6 +9,8 @@ import eviltalkingpie.pandemicraft.item.ItemDarkStar;
 import eviltalkingpie.pandemicraft.item.ItemGreenHeart;
 import eviltalkingpie.pandemicraft.item.ItemPandemiSlasher;
 import eviltalkingpie.pandemicraft.item.ItemRawManaBucket;
+import eviltalkingpie.pandemicraft.item.ItemRealityCrack;
+import eviltalkingpie.pandemicraft.item.ItemRealityTear;
 import eviltalkingpie.pandemicraft.item.ItemSimple;
 
 public class ModItems
@@ -16,9 +18,9 @@ public class ModItems
     public static final ItemBase  itemRawManaBucket          = new ItemRawManaBucket("rawManaBucket");
     public static final ItemBase  itemDarkStar               = new ItemDarkStar("darkStar", "ELDRITCHMINOR");
     public static final ItemBase  itemPulsingIngot           = new ItemSimple("pulsingIngot", 1);
-    public static final ItemBase  itemRealityCrack           = new ItemSimple("realityCrack", 1, "ICHOR");
+    public static final ItemBase  itemRealityCrack           = new ItemRealityCrack("realityCrack", 1, "ICHOR");
     public static final ItemBase  itemStabilizedRealityCrack = new ItemSimple("stabilizedRealityCrack", 1, "ICHOR");
-    public static final ItemBase  itemRealityTear            = new ItemSimple("realityTear", 1, "ICHOR");
+    public static final ItemBase  itemRealityTear            = new ItemRealityTear("realityTear", 1, "ICHOR");
     public static final ItemBase  itemBloodHeart             = new ItemSimple("bloodHeart", 16);
     public static final ItemBase  itemPulsingHeart           = new ItemSimple("pulsingHeart", 16);
     public static final ItemBase  itemInfusedHeart           = new ItemSimple("infusedHeart", 16, "RUNICARMOR");
